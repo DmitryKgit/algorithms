@@ -25,15 +25,20 @@
 
 // работает для натуральных
 function gcd(a, b) {
+    if (a == 0) {
+        return b;
+    }
     if (b % a == 0) {
-        return a;
+        return Math.abs(a);
     } 
     return gcd(b, a % b);
 }
 
 console.log(gcd(256, 48));
 console.log(gcd(13, 21));
-console.log(gcd(13, 0)); // не работает
-console.log(gcd(12, -6));   // не работает
+console.log(gcd(13, 0)); 
+console.log(gcd(12, -6));
 console.log(gcd(-12, 6));
-console.log(gcd(-12, -6)); // не работает
+console.log(gcd(-12, -6));
+console.log(gcd(0, 13));
+console.log(gcd(0, 0));

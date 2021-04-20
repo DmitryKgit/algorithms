@@ -25,16 +25,18 @@
 */
 
 function move(n, x, y) {
-    if (x + y == 4) {       // с 1 на 3, с 3 на 1, согласно условию. 
-        console.log(n, x, 2);
-        console.log(n, 2, y);
-    } else {            // 
-        let tmp = 6 - x - y;
-        move(n - 1, x, tmp);
-        console.log(n, x, y);
-        move(n - 1, tmp, y);
+    if (n != 0) {
+        if (x + y == 4) {       // с 1 на 3, с 3 на 1, согласно условию. 
+            move(n, x, 2);
+            move(n, 2, y);
+        } else {            
+            let tmp = 6 - x - y;
+            move(n - 1, x, tmp);
+            console.log(n, x, y);
+            move(n - 1, tmp, y);
+        }
     }
 }
 
-move(2, 1, 3);
+move(3, 1, 3);
 
