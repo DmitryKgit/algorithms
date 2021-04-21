@@ -32,7 +32,7 @@
     f(5) = 3
     f(6) = 3
     f(7) = 3
-    f(8) = 3
+    f(8) = 4
 
 Примеры
 входные данные
@@ -47,15 +47,10 @@
 
 
 // метод половинного деления (метод бинарной бисекции)
-function fall(n, k = 1) {
-    if (n <= 1) {
-        return 0;
-    } else {
-        return fall(Math.ceil(n / 2)) + k; // подсказки
-    }
+function fall(n) {
+    return (n + 1) / 2;
 }
 
-// правильный ли тест?
 console.log(fall(1));  // 0
 console.log(fall(2));  // 1 k = 1
 console.log(fall(3));  // 2 k = 2
