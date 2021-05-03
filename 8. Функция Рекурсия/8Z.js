@@ -44,12 +44,12 @@
 3
 
 Решение:
-первый шарик можно использовать на половинное деление.
-Второй - на пошаговый перебор. 
+1) Бросаем шарик с этажа k
+2) Если шар разбился - кидаем второй поочерёдно с 1 до k - 1 этажа, 
+3) Если шар не разбился - кидаем его на отрезке n - k, начиная с k - 1 этажа
+4) Повторяем пункт 2 и 3
 */
 
-// 8L
-// метод половинного деления (метод бинарной бисекции)
 function fall(n, k = 1) {
     if (n <= 1) {
         return 0;
@@ -58,14 +58,13 @@ function fall(n, k = 1) {
     }
 }
 
-// правильный ли тест?
 console.log(fall(1));  // 0
-console.log(fall(2));  // 1 k = 1
-console.log(fall(3));  // 2 k = 2
-console.log(fall(4));  // 2 k = 2
-console.log(fall(5));  // 3 k = 3
-console.log(fall(6));  // 3 k = 3
-console.log(fall(7));  // 3 k = 4
+console.log(fall(2));  // 1 
+console.log(fall(3));  // 2 
+console.log(fall(4));  // 2 
+console.log(fall(5));  // 3 
+console.log(fall(6));  // 3 
+console.log(fall(7));  // 3 
 console.log(fall(8)); // 4
 console.log(fall(9)); // 4
 console.log(fall(10)); // 4
