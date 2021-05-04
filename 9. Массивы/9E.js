@@ -1,5 +1,5 @@
 /*
-9E.js 27.04.2021
+9E.js 04.05.2021
 Дан список чисел. Если в нем есть два соседних элемента одного знака, выведите эти числа. Если соседних элементов одного знака нет - не выводите ничего. Если таких пар соседей несколько - выведите первую пару.
 
 Входные данные
@@ -27,4 +27,29 @@ function sameSign(arr) {
     }
 }
 
-sameSign([-1, 2, -3, 1, -1, -2]);
+// принимает массив, печатает массив на консоль
+function arrayPrint(arr) {
+    if (!arr) {
+        return false;
+    }
+    console.log(arr.map(element => String(element)).join(' '));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(sameSign(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(sameSign([-1, 2, 3, 1, -1, -2]));
+    arrayPrint(sameSign([-1, 2, -3, 1, -1, -2]));
+    arrayPrint(sameSign([-1, 2, -3, 1, -1, 2]));
+    arrayPrint(sameSign([]));
+}
+
+//interfaceTest();
+test();

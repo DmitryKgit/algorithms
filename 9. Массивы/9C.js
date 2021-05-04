@@ -1,5 +1,5 @@
 /*
-9C.js 27.04.2021
+9C.js 04.04.2021
 Найдите количество положительных (>0) элементов в данном списке.
 
 Входные данные
@@ -16,7 +16,7 @@
 */
 
 
-function evenIndex(arr) {
+function posElem(arr) {
     let cnt = 0;
     arr.forEach(element => {
         if (element > 0) {
@@ -26,4 +26,23 @@ function evenIndex(arr) {
     return cnt;
 }
 
-evenIndex([1, -2, 3, -4, 5]);
+// принимает число, печатает число на консоль
+function arrayPrint(num) {
+    console.log(String(num));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(posElem(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(posElem([1, -2, 3, -4, 5]));
+}
+
+//interfaceTest();
+test();

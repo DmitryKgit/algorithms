@@ -15,7 +15,7 @@
 0
 */
 
-// определяет количество локальных максимумов - выводит ответ на задачу
+// определяет количество локальных максимумов - возвращает число
 function max(arr) {
     let cnt = 0;
     for (let i = 1; i < arr.length - 1; i++) {
@@ -26,4 +26,25 @@ function max(arr) {
     return cnt;
 }
 
-max([1, 2, 1, 4, 1, 6]);
+// принимает число, печатает число на консоль
+function arrayPrint(num) {
+    console.log(String(num));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(max(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(max([1, 2, 3, 4, 5, 6]));
+    arrayPrint(max([1, 2, 1, 4, 1, 6]));
+}
+
+//interfaceTest();
+test();
+

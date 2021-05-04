@@ -18,26 +18,31 @@
 
 // определяет наибольший элемент массива и его индекс - выводит массив ответов
 function max(arr) {
-    const maxVal = Math.max.apply(null, arr);
-    return [maxVal, arr.indexOf(maxVal)];
+  let res = '';
+  for (let i = 1; i < arr.length - 1; i++) {
+    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
+      return res + arr[i] + ' ' + i;
+    }
+  }
+  return res;
 }
 
 // принимает массив, печатает массив на консоль
-function arrayPrint(arr) {
-    console.log(arr.map(element => String(element)).join(' '));
+function arrayPrint(str) {
+  console.log(str);
 }
 
 // принимает массив, вводимый пользователем, возвращает массив чисел
 function arrayInput() {
-    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+  return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
 }
 
 function interfaceTest() {
-    arrayPrint(max(arrayInput()));    
+  arrayPrint(max(arrayInput()));    
 }
 
 function test() {
-    arrayPrint(max([1, 2, 3, 2, 1]));
+  arrayPrint(max([1, 2, 3, 2, 1]));
 }
 
 //interfaceTest();

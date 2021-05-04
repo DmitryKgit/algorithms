@@ -1,5 +1,5 @@
 /*
-9D.js 27.04.2021
+9D.js 04.04.2021
 Дан список чисел. Выведите все элементы списка, которые больше предыдущего элемента.
 
 Входные данные
@@ -26,4 +26,23 @@ function moreThanPrev(arr) {
     return result;
 }
 
-moreThanPrev([1, 5, 2, 4, 3]);
+// принимает массив, печатает массив на консоль
+function arrayPrint(arr) {
+    console.log(arr.map(element => String(element)).join(' '));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(moreThanPrev(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(moreThanPrev([1, 5, 2, 4, 3]));
+}
+
+//interfaceTest();
+test();

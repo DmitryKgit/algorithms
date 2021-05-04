@@ -1,5 +1,5 @@
 /*
-9H.js 28.04.2021
+9H.js 04.05.2021
 Выведите значение наименьшего из всех положительных элементов в списке. Известно, что в списке есть хотя бы один положительный элемент, а значения всех элементов списка по модулю не превосходят 1000.
 
 Входные данные
@@ -16,9 +16,29 @@
 */
 
 
-// определяет наименьшее положительное - выводит ответ на задачу
-function min(arr) {
+// определяет наименьшее положительное - возвращвет число
+function minPos(arr) {
     return Math.min.apply(null, arr.filter(item => item > 0));
 }
 
-min([5, -4, 3, -2, 1]);
+// принимает число, печатает число на консоль
+function arrayPrint(num) {
+    console.log(String(num));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(minPos(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(minPos([5, -4, 3, -2, 1]));
+    arrayPrint(minPos([5, -4, 3, -2, 1]));
+}
+
+//interfaceTest();
+test();
