@@ -15,10 +15,28 @@
 3
 */
 
-
-// определяет наименьшее положительное - выводит ответ на задачу
+// определяет количество различных элементов - возвращает число - ответ на задачу
 function elements(arr) {
     return new Set(arr).size;
 }
 
-elements([1, 2, 2, 3, 3, 3, 10]);
+// принимает число, печатает число на консоль
+function arrayPrint(num) {
+    console.log(String(num));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(elements(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(elements([1, 2, 2, 3, 3, 3, 10]));
+}
+
+//interfaceTest();
+test();

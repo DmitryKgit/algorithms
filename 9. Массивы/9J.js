@@ -21,15 +21,37 @@
 5
 */
 
-
-// определяет наименьшее положительное - выводит ответ на задачу
+// сравнивает рост с каждым элементом массива - возвращает число - ответ на задачу
 function linePos(arr, X) {
+    let pos = arr.length;
     for (let i = 0; i < arr.length; i++) {
-        if (X > arr[i]) {
-            return arr.indexOf(arr[i]) + 1;
+        if (X <= arr[i]) {
+            pos = i + 2;
         }
     }    
+    return pos;      // еслИ Петя самый низкий - ставим его в конец списка
 }
 
-linePos([165, 163, 160, 160, 157, 157, 155, 154], 162);
-// linePos([165, 163, 160, 160, 157, 157, 155, 154], 160);
+// принимает число, печатает число на консоль
+function arrayPrint(num) {
+    console.log(String(num));
+}
+
+// принимает массив, вводимый пользователем, возвращает массив чисел
+function arrayInput() {
+    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+}
+
+function interfaceTest() {
+    arrayPrint(linePos(arrayInput()));    
+}
+
+function test() {
+    arrayPrint(linePos([165, 163, 160, 160, 157, 157, 155, 154], 162));
+    arrayPrint(linePos([165, 163, 160, 160, 157, 157, 155, 154], 160));
+    arrayPrint(linePos([165, 163, 160, 160, 157, 157, 155, 154], 153));
+    arrayPrint(linePos([165, 165, 165], 165));
+}
+
+//interfaceTest();
+test();

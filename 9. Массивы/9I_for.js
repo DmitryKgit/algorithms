@@ -19,10 +19,17 @@
 0
 */
 
-// определяет наименьшее положительное - возвращвет массив ответ на задачу
+// определяет наименьшее положительное - возвращвет число - ответ на задачу
 function minOdd(arr) {
-    arr = arr.filter(item => item % 2 != 0);
-    return Math.min.apply(null, arr.length > 0 ? arr : [0]);
+  let min = Infinity;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] % 2 != 0) {
+      if (arr[i] < min) {
+        min = arr[i];
+      }
+    } 
+  }
+  return min === Infinity ? 0 : min;
 }
 
 // принимает число, печатает число на консоль
