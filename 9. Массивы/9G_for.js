@@ -16,20 +16,20 @@
 */
 
 
-// определяет наибольший элемент массива и его индекс - выводит массив ответов
-function max(arr) {
-  let res = '';
+// определяет наибольший элемент массива и его индекс - возвращает массив: значение максимума, индекс максимума
+function globalMax(arr) {
+  let iMax = 0;  // индекс максимального значения
   for (let i = 1; i < arr.length - 1; i++) {
-    if (arr[i] > arr[i - 1] && arr[i] > arr[i + 1]) {
-      return res + arr[i] + ' ' + i;
+    if (arr[i] > arr[iMax]) {
+      iMax = i;
     }
   }
-  return res;
+  return [arr[iMax], iMax];
 }
 
 // принимает массив, печатает массив на консоль
-function arrayPrint(str) {
-  console.log(str);
+function arrayPrint(arr) {
+  console.log(arr.map(element => String(element)).join(' '));
 }
 
 // принимает массив, вводимый пользователем, возвращает массив чисел
@@ -38,11 +38,11 @@ function arrayInput() {
 }
 
 function interfaceTest() {
-  arrayPrint(max(arrayInput()));    
+  arrayPrint(globalMax(arrayInput()));    
 }
 
 function test() {
-  arrayPrint(max([1, 2, 3, 2, 1]));
+  arrayPrint(globalMax([1, 2, 3, 2, 1]));
 }
 
 //interfaceTest();
