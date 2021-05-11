@@ -14,47 +14,46 @@
 3
 1 2 -1 3 1
 
+4
+1 2 -1 3 1 -2 -1 4 1 2
+
+5
+1 2 -1 3 1 -2 -1 4 1 2 -1 -3 1 -2 -1 5 1 2 -1 3 1 
+
+fill(n)
+Добавляем фишки на полоску до N - 1
+Снимаем фишки на полоске до N - 2
+Ставим фишку на поле N
+Добавляем фишки на полоску до N - 2
+
+clear(n)
+Снимаем фишки на полоске до N - 2
+Снимаем фишку на поле N
+Добавляем фишки на полоску до N - 2
+Снимаем фишки на полоске до (N - 1)
+
 */
 
-function move(n, x, y) {
-    let tmp = 6 - x - y;
+// fill заполняет полоску до N, возвращает массив чисел - ответ на задачу
+function fill(n) {
+    if (n == 0) {
+        return [];
+    } 
     if (n == 1) {
-        console.log(n, x, tmp);
-        console.log(n, tmp, y);
-    } else if (n == 2) {
-        move(n - 1, x, y);
-        console.log(n, x, tmp);
-        console.log(n - 1, y, x);
-        console.log(n, tmp, y);
-        move(n - 1, x, y);
-    } else {
-        move(n - 1, x, y);
-        console.log(n, x, tmp);
-        move(n - 1, y, tmp);
-        console.log(n, tmp, y);
-        move(n - 1, x, y);
+        return [1];
     }
+    return fill(n - 1).concat(clear(n - 2)).concat([n]).concat(fill(n - 2));
 }
 
-move(3, 1, 3);
+// сlear логически очищает полоску до N, возвращает массив числе - последовательность шагов
+function clear(n) {
+    if (n == 0) {
+        return [];
+    } 
+    if (n == 1) {
+        return [-1];
+    } 
+    return clear(n - 2).concat([-n]).concat(fill(n - 2)).concat(clear(n - 1));
+}
 
-// function move(n, x, y) {
-//     let cur = x;
-//     let next = 6 - cur - y;
-
-//     if (n == 1) {
-//         console.log(n, cur, next);
-//         [cur, next] = [next, 6 - cur - next];
-//         console.log(n, cur, next);
-//     } else {
-//         move(n - 1, x, y);
-//         console.log(n, x, next);
-//         move(n - 1, y, next);
-//         console.log(n, next, y);
-//         move(n - 1, next, y);
-//     }
-// }
-
-// move(2, 1, 3);
-
-console.log(4%4);   
+console.log(fill(5).join(' '));

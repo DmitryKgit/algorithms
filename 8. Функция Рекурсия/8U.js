@@ -24,46 +24,19 @@
 */
 
 function move(n, x, y) {
-    let tmp = 6 - x - y;
-    if (n == 1) {
-        console.log(n, x, tmp);
-        console.log(n, tmp, y);
-    } else if (n == 2) {
-        console.log(n - 1, x, tmp);
-        console.log(n - 1, tmp, y);
-        console.log(n, x, tmp);
-        console.log(n - 1, y, x);
-        console.log(n, tmp, y);
-        console.log(n - 1, x, tmp);
-        console.log(n - 1, tmp, y);
-    } else {
-        move(n - 1, x, y);
-        console.log(n, x, tmp);
-        move(n - 1, y, x);
-        console.log(n, tmp, y);
-        move(n - 1, x, y);
-    } 
+    if (n != 0) {
+        if (x == 1) {
+            move(n, x, 2);
+            move(n, 2, y);
+        } else if (x == 3) {
+            move(n, x, 1);
+        } else {
+            let tmp = 6 - x - y;
+            move(n - 1, x, tmp);
+            console.log(n, x, y);
+            move(n - 1, tmp, y);
+        }
+    }
 }
 
 move(3, 1, 3);
-
-// function move(n, x, y) {
-//     let cur = x;
-//     let next = 6 - cur - y;
-
-//     if (n == 1) {
-//         console.log(n, cur, next);
-//         [cur, next] = [next, 6 - cur - next];
-//         console.log(n, cur, next);
-//     } else {
-//         move(n - 1, x, y);
-//         console.log(n, x, next);
-//         move(n - 1, y, next);
-//         console.log(n, next, y);
-//         move(n - 1, next, y);
-//     }
-// }
-
-// move(2, 1, 3);
-
-console.log(4%4);   
