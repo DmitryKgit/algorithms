@@ -33,38 +33,60 @@ NO
 YES
 */
 
-// принимает массив кеглей и массивы попыток, возвращает массив - ответ на задачу
-function bowling([N, nums]) {
-    N = new Array(N).fill('I');
-    nums.forEach(item => {
-        let len = item[1] - item[0] + 1; // количество кеглей, сбитых за попытку
-        N.splice(item[0] - 1, len, ...((new Array(len)).fill('.')));    
-    });
-    return N;
+// принимает массив координат, возвращает bool - ответ на задачу
+function queens(location) {
+    for (let i = 0; i < 8; i++) {
+        for (let j = i + 1; j < 8; j++) {
+            let dx = Math.abs(location[i][0] - location[j][0]);
+            let dy = Math.abs(location[i][1] - location[j][1]);
+            if (dx != 0 && dx == dy || (dx == 0) != (dy == 0)) {
+                return false;
+            }
+        }
+    }
+    return true;
 }
 
 // принимает массив, печатает массив на консоль
-function arrayPrint(arr) {
-    console.log(arr.map(element => String(element)).join(' '));
+function arrayPrint(ans) {
+    console.log(ans ? "YES" : "NO");
 }
 
-// принимает длину ряда, количество шаров, массивы с номерами сбитых кегель, вводимые пользователем, возвращает массив данных
+// принимает координаты ферзей, возвращает массив данных
 function arrayInput() {
-    let N = Number(prompt('Введите длину ряда'));
-    let K = Number(prompt('Введите количество шаров'));
-    let nums = new Array(K);
-    for (let i = 0; i < nums.length; i++) {
-        nums[i] = [prompt('Номер левой кегли'), prompt('Номер правой кегли')];
+    const location = new Array(8);
+    for (let i = 0; i < 8; i++) {
+        location[i] = [prompt('Введите горизонтальную координату'), 
+                       prompt('Введите вертикальную координату')];
     }
-    return [N, nums];
+    return location;
 }
 
 function interfaceTest() {
-    arrayPrint(bowling(arrayInput()));    
+    arrayPrint(queens(arrayInput()));    
 }
 
 function test() {
-    arrayPrint(bowling([10, [[8, 10], [2, 5], [3, 6]]])); 
+    arrayPrint(queens([
+        [1, 8], 
+        [2, 7], 
+        [3, 6], 
+        [4, 5], 
+        [5, 4], 
+        [6, 3], 
+        [7, 2], 
+        [8, 1]
+    ])); 
+    arrayPrint(queens([
+        [1, 7], 
+        [2, 4], 
+        [3, 2], 
+        [4, 8], 
+        [5, 6], 
+        [6, 1], 
+        [7, 3], 
+        [8, 5]
+    ])); 
 }
 
 // interfaceTest();

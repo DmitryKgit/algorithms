@@ -15,12 +15,12 @@ YES         NO
 */
 
 let x1 = 1;
-let y1 = 1;
-let x2 = 2;
-let y2 = 3;
+let y1 = 2;
+let x2 = 5;
+let y2 = 1;
 let dx = Math.abs(x2 - x1);
 let dy = Math.abs(y2 - y1);
-let s = Math.sqrt(dx * )
+// let s = Math.sqrt(dx * dy);
 /*console.log(c < a && (d == b + (a - c) || d == b - (a - c) || d == b) || c >= a && (d == b - (a - c) || d == b + (a - c) || d == b) ? "YES" : "NO"); 
                 = A && (C || D || E) || B && (C || D || E) = (A || B) && (C || D || E) */
 console.log(dx != 0 && dx == dy || (dx == 0) != (dy == 0) ? "YES" : "NO");
