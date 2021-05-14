@@ -16,21 +16,13 @@
 выходные данные
 7 4 6 5 3
 
-1) Создаём пустой массив индексов
-2) Меняем сдвигаем индексы в пустом массиве
-3) Заполняем пустой массив значениями из исходного
 */
 
 // принимает массив, возвращает массив - ответ на задачу
-function queens(location, K = 3) {
-    let iShift = K >= 0 ? K - location.length * Math.trunc(K / location.length) : location.length + K % location.length; 
-    for (let i = 0; i < location.length; i++) {
-        location[i] = location[iShift + i];
-    }
-    console.log(K - location.length * Math.trunc(K / location.length));
-    return location;
+function carousel(location, K) {
+    return K % location.length >= 0 ? location.splice(-K, K).concat(location): 
+                                      location.concat(location.splice(0, -K));
 }
-console.log(queens([1, 2, 3, 4, 5]));
 
 // принимает массив, печатает массив на консоль
 function arrayPrint(arr) {
@@ -39,16 +31,16 @@ function arrayPrint(arr) {
 
 // принимает массив, вводимый пользователем, возвращает массив чисел
 function arrayInput() {
-    return prompt('Введите числа через пробел').split(' ').map(item => Number(item));
+    return [prompt('Введите числа через пробел').split(' ').map(item => Number(item)), prompt('Введите величину сдвига')];
 }
 
 function interfaceTest() {
-    arrayPrint(queens(arrayInput()));    
+    arrayPrint(carousel(...arrayInput()));    
 }
 
 function test() {
-    arrayPrint(queens([1, 2, 3, 4, 5], 3)); // 3 4 5 1 2  
-    arrayPrint(queens([1, 2, 3, 4, 5], -3)); // 4 5 1 2 3  
+    arrayPrint(carousel([1, 2, 3, 4, 5], 3)); // 3 4 5 1 2  
+    arrayPrint(carousel([1, 2, 3, 4, 5], -3)); // 4 5 1 2 3  
 }
 
 // interfaceTest();

@@ -21,13 +21,13 @@
 
 // Байкер Вася едет со скоростью v t часов. Длина МКАД — 109 километров. Функция возвращает отметку на которой остановился мотоциклист.
 function speedTime(v, t) {
-        const round = 109;
+        let round = 109;
         let distance = v * t;
         return ((round + distance % round)) % round;
 }
 
-const v = 60;
-const t = 2;
-const mark = speedTime(v, t); // speedTime(Number(prompt('Введите скорость, км/ч: ')), Number(prompt('Введити время движения, ч: ')));
+let v = -108;
+let t = 2;
+let mark = speedTime(v, t); // speedTime(Number(prompt('Введите скорость, км/ч: ')), Number(prompt('Введити время движения, ч: ')));
 console.log(mark);
 
