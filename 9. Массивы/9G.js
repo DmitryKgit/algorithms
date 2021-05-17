@@ -18,7 +18,7 @@
 
 // определяет наибольший элемент массива и его индекс - выводит массив ответов
 function max(arr) {
-    const maxVal = Math.max.apply(null, arr);
+    const maxVal = Math.max(...arr);
     return [maxVal, arr.indexOf(maxVal)];
 }
 

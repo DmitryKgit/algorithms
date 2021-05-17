@@ -22,7 +22,7 @@
 // определяет наименьшее положительное - возвращвет массив ответ на задачу
 function minOdd(arr) {
     arr = arr.filter(item => item % 2 != 0);
-    return Math.min.apply(null, arr.length > 0 ? arr : [0]);
+    return arr.length > 0 ? Math.min(...arr) : 0;
 }
 
 // принимает число, печатает число на консоль
