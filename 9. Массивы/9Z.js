@@ -41,6 +41,7 @@ function interfaceTest() {
 function test() {
     arrayPrint(carousel([1, 2, 3, 4, 5], 3)); // 3 4 5 1 2  
     arrayPrint(carousel([1, 2, 3, 4, 5], -3)); // 4 5 1 2 3  
+    arrayPrint(carousel([1, 2, 3, 4, 5], 11)); // 4 5 1 2 3  
 }
 
 // interfaceTest();
