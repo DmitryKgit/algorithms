@@ -17,6 +17,21 @@
 
 // определяет количество различных элементов - возвращает число - ответ на задачу
 function elements(arr) {
+    let cnt = 0;
+    let flag = true;    // число не повторяется 
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] == arr[j]) {
+                flag = false;
+                break;
+            }
+        }
+        if (flag) {
+            cnt++;
+        }
+        flag = true;
+    }
+    return cnt;
 }
 
 // принимает число, печатает число на консоль
@@ -34,7 +49,7 @@ function interfaceTest() {
 }
 
 function test() {
-    arrayPrint(elements([1, 2, 2, 3, 3, 3, 10]));
+    arrayPrint(elements([1, 2, 2, 3, 3, 3, 10, 1, 5]));
 }
 
 //interfaceTest();
