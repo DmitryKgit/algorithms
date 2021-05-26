@@ -17,7 +17,17 @@
 
 // создаёт набор различных элементов - возвращает число - ответ на задачу
 function copy(arr) {
-    return (new Set(arr)).size;
+    let cnt = 0;
+    out:
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = 0; j < i; j++) {
+            if (arr[i] == arr[j]) {
+                continue out; // пропустить счётчик
+            }
+        }
+        cnt++;
+    }
+    return cnt;
 }
 
 // принимает число, печатает число на консоль
