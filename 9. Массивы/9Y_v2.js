@@ -37,18 +37,19 @@ YES
 function queens(location) {
     for (let i = 0; i < 8; i++) {
         for (let j = i + 1; j < 8; j++) {
-            let dx = Math.abs(location[i][0] - location[j][0]);
-            let dy = Math.abs(location[i][1] - location[j][1]);
-            if (dx != 0 && dx == dy || (dx == 0) != (dy == 0)) {
+            if (isMove(location, i, j))
                 return false;
-            }
         }
     }
     return true;
 }
 
-function isMove() {
-  
+function isMove(location, i, j) {
+    let dx = Math.abs(location[i][0] - location[j][0]);
+    let dy = Math.abs(location[i][1] - location[j][1]);
+    if (dx != 0 && dx == dy || (dx == 0) != (dy == 0)) {
+        return false;
+    }
 }
 
 // принимает массив, печатает массив на консоль
