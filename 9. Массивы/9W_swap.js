@@ -18,14 +18,18 @@
 // возвращает массив - ответ на задачу
 function compression(arr) {
     let iNull = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] == 0) {
-            arr.splice(i, 1);
-            i--;
-            cnt++;
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] == 0 && arr[iNull] != 0) {
+            iNull = i;
+        } else if (arr[i] == 0 && arr[iNull] == 0) {
+            continue;
+        } 
+        else {
+            [arr[i], arr[iNull]] = [arr[iNull], arr[i]];
+            iNull++;
         }
     }
-    return arr.concat((new Array(cnt).fill(0)));
+    return arr;
 }
 
 // принимает массив, печатает массив на консоль
@@ -44,6 +48,8 @@ function interfaceTest() {
 
 function test() {
     arrayPrint(compression([4, 0, 5, 0, 3, 0, 0, 5])); 
+    arrayPrint(compression([0, 0, 0, 0, 0, 0, 0, 5])); 
+    arrayPrint(compression([0, 5, 5, 5, 5, 5, 5, 5])); 
 }
 
 //interfaceTest();
