@@ -16,7 +16,9 @@
 */
 
 function evenIndex(arr) {
-  return arr.map((item, index) => index % 2 == 0 ? item : item[index - 1]);
+  for (let i = 1; i < arr.length; i += 2) 
+      [arr[i - 1], arr[i]] = [arr[i], arr[i - 1]];
+  return arr;
 }
 
 // принимает массив, печатает массив на консоль
@@ -35,7 +37,7 @@ function interfaceTest() {
 
 function test() {
   arrayPrint(evenIndex([1, 2, 3, 4, 5]));
-  arrayPrint(evenIndex([1, 2, 3, 2, 1]));
+  arrayPrint(evenIndex([1, 2, 3, 4, 5, 6]));
 }
 
 //interfaceTest();

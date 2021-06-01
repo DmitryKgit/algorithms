@@ -37,19 +37,17 @@ YES
 function queens(location) {
     for (let i = 0; i < 8; i++) {
         for (let j = i + 1; j < 8; j++) {
-            if (isMove(location, i, j))
-                return false;
+            return isMove(location, i, j);
         }
     }
-    return true;
+    return false;
 }
 
+// принимает координату ферзя и клетки, возвращает bool - возможность хода
 function isMove(location, i, j) {
     let dx = Math.abs(location[i][0] - location[j][0]);
     let dy = Math.abs(location[i][1] - location[j][1]);
-    if (dx != 0 && dx == dy || (dx == 0) != (dy == 0)) {
-        return false;
-    }
+    return (dx != 0 && dx == dy || (dx == 0) != (dy == 0));
 }
 
 // принимает массив, печатает массив на консоль

@@ -35,7 +35,6 @@ function interfaceTest() {
 
 function test() {
   arrayPrint(evenIndex([1, 2, 3, 4, 5]));
-  arrayPrint(evenIndex([1, 2, 3, 2, 1]));
 }
 
 //interfaceTest();
