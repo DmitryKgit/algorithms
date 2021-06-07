@@ -33,20 +33,22 @@ NO
 YES
 */
 
-// принимает массив координат, возвращает bool - ответ на задачу
+// принимает массив координат, возвращает true, если ферзи бьют друг друга, false - если нет.
 function queens(location) {
-    for (let i = 0; i < 8; i++) {
-        for (let j = i + 1; j < 8; j++) {
-            return isMove(location, i, j);
+    let len = location.length;
+    for (let i = 0; i < len; i++) {   // i - номер 1ого ферзя
+        for (let j = i + 1; j < len; j++) { // j - номер 2ого ферзя
+            if (isMove(location[i][0], location[i][1], location[j][0], location[j][1]))
+                return true;
         }
     }
     return false;
 }
 
 // принимает координату ферзя и клетки, возвращает bool - возможность хода
-function isMove(location, i, j) {
-    let dx = Math.abs(location[i][0] - location[j][0]);
-    let dy = Math.abs(location[i][1] - location[j][1]);
+function isMove(x1, y1, x2, y2) {
+    let dx = Math.abs(x1 - x2);
+    let dy = Math.abs(y1 - y2);
     return (dx != 0 && dx == dy || (dx == 0) != (dy == 0));
 }
 

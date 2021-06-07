@@ -16,18 +16,8 @@
 */
 
 // создаёт набор различных элементов - возвращает число - ответ на задачу
-function count(arr) {
-    let cnt = 0;
-    out:
-    for (let i = 0; i < arr.length; i++) {
-        for (let j = 0; j < i; j++) {
-            if (arr[i] == arr[j]) {
-                continue out; // пропустить счётчик
-            }
-        }
-        cnt++;
-    }
-    return cnt;
+function copy(arr) {
+    return (new Set(arr)).size;
 }
 
 // принимает число, печатает число на консоль
@@ -41,14 +31,14 @@ function arrayInput() {
 }
 
 function interfaceTest() {
-    arrayPrint(count(arrayInput()));    
+    arrayPrint(copy(arrayInput()));    
 }
 
 function test() {
-    arrayPrint(count([1, 2, 3, 2, 3])); 
-    arrayPrint(count([1, 1, 1, 1, 1])); 
-    arrayPrint(count([1, 2, 3, 2, 5, 6]));
-    arrayPrint(count([2, 1, 3, 1, 5, 1, 6]));
+    arrayPrint(copy([1, 2, 3, 2, 3])); 
+    arrayPrint(copy([1, 1, 1, 1, 1])); 
+    arrayPrint(copy([1, 2, 3, 2, 5, 6]));
+    arrayPrint(copy([2, 1, 3, 1, 5, 1, 6]));
 }
 
 //interfaceTest();
