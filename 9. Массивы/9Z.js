@@ -20,8 +20,13 @@
 
 // принимает массив, возвращает массив - ответ на задачу
 function carousel(location, K) {
-    return K % location.length >= 0 ? [...location.splice(-K, K), ...location]: 
-                                      [...location, ...location.splice(0, -K)];
+    if (K % location.length >= 0) {
+        return location.splice(-K, K);
+    } else {
+        return location.splice(0, -K);
+    }
+    // return K % location.length >= 0 ? [...location.splice(-K, K), ...location]: 
+    //                                   [...location, ...location.splice(0, -K)];
 }
 
 // принимает массив, печатает массив на консоль
