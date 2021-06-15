@@ -24,7 +24,7 @@ function cyclicShift(arr) {
 
 // принимает массив, печатает массив на консоль
 function arrayPrint(arr) {
-    console.log(arr);
+    // console.log(arr);
     console.log(arr.map(element => String(element)).join(' '));
 }
 
